@@ -375,4 +375,15 @@ const bills = [
 
 // Start coding here
 
-const totalPaidByLocation;
+const totalPaidByLocation = {};
+
+bills.map((bill) => {
+    if (totalPaidByLocation[bill.location]){
+        return totalPaidByLocation[bill.location] = totalPaidByLocation[bill.location] + bill.total
+    } else if (!totalPaidByLocation[bill.location]) {
+        return totalPaidByLocation[bill.location] = bill.total
+    }
+})
+
+console.log(totalPaidByLocation)
+
