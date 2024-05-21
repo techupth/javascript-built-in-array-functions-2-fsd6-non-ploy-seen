@@ -375,7 +375,7 @@ const bills = [
 
 // Start coding here
 
-// Method 1 : array.map ( got an idea from debrief session, then came up with a slight different approach)
+// Method 1 : array.map ( got an idea from debrief session, then came up with a slightly different approach)
 
 // const totalPaidByLocation = {};
 
