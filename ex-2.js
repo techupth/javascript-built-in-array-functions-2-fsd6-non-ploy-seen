@@ -375,4 +375,9 @@ const bills = [
 
 // Start coding here
 
-const newBills;
+function addBillMemberDetail(detail){
+    return detail.member !== null
+}
+
+const newBills = bills.filter(addBillMemberDetail)
+console.log(newBills)
