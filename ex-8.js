@@ -375,15 +375,46 @@ const bills = [
 
 // Start coding here
 
-const totalPaidByLocation = {};
+// Method 1 : array.map ( got an idea from debrief session, then came up with a slight different approach)
 
-bills.map((bill) => {
-    if (totalPaidByLocation[bill.location]){
-        return totalPaidByLocation[bill.location] = totalPaidByLocation[bill.location] + bill.total
-    } else if (!totalPaidByLocation[bill.location]) {
-        return totalPaidByLocation[bill.location] = bill.total
+// const totalPaidByLocation = {};
+
+// bills.map((bill) => {
+//     if (totalPaidByLocation[bill.location]){
+//         return totalPaidByLocation[bill.location] = totalPaidByLocation[bill.location] + bill.total
+//     } else if (!totalPaidByLocation[bill.location]) {
+//         return totalPaidByLocation[bill.location] = bill.total
+//     }
+// })
+
+// console.log(totalPaidByLocation)
+
+// Method 2 : for loop and condition ( spent a couple of hours coming up with this concept, then an additional hour executing it )
+
+const totalPaidByLocation = ((MainArray) => {
+
+    let newArray = [];
+    let newObj = {};
+
+    for ( let item of MainArray) {
+       if (!newArray.includes(item.location)){
+        newArray.push(item.location)
+       } 
     }
-})
 
-console.log(totalPaidByLocation)
+    for (let item of newArray){
+        newObj[item] = null;
+    }
+    
+    for ( let item of MainArray){
+        for (let province in newObj) {
+            if ( item.location === province){
+                newObj[province] += item.total
+            }
+        }
+    }
+    return newObj
+})
+   
+console.log(totalPaidByLocation(bills));
 
