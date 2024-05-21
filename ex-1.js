@@ -374,3 +374,6 @@ const bills = [
 ];
 
 // Start coding here
+const totalPrice = bills.reduce((acc, cur) => acc + cur.total, 0);
+
+console.log(totalPrice);
