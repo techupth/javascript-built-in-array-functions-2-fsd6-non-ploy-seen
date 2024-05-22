@@ -374,4 +374,14 @@ const bills = [
 ];
 
 // Start coding here
-const totalMembers;
+const totalMembers = bills
+.filter((individual) => {
+  return individual.member !== null})
+.map((item) => {
+  return item.member.name})  
+.filter((item, index, array) => {
+  return array.indexOf(item) === index 
+})
+
+console.log(`Unique Members Count: ${totalMembers.length}`)
+  
